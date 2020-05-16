@@ -11,7 +11,7 @@ public class config {
     public static Connection configDB() throws SQLException{
         
         try{
-            String url = "jdbc:mysql://localhost:8080/warehouselog";
+            String url = "jdbc:mysql://localhost:3306/warehouselog";
             String user = "root";
             String pass = "";
             

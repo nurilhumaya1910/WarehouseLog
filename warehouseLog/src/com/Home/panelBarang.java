@@ -9,8 +9,8 @@ import java.sql.Connection;
 public class panelBarang extends javax.swing.JFrame {
 
     private void empty_form(){
+        fieldKode.setEditable(true);
         fieldKode.setText(null);
-        fieldNama.setEditable(true);
         fieldNama.setText(null);
         fieldJenis.setText(null);
         fieldJumlah.setText(null);
@@ -78,39 +78,53 @@ public class panelBarang extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Warehouse Log");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         title.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
         title.setText("Data Barang");
+        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 39, -1, -1));
 
         kode.setText("Kode");
+        getContentPane().add(kode, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 81, -1, -1));
 
         nama.setText("Nama");
+        getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 119, -1, -1));
 
         jenis.setText("Jenis");
+        getContentPane().add(jenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 157, -1, -1));
 
         jumlah.setText("Jumlah");
+        getContentPane().add(jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 195, -1, -1));
 
         supplier.setText("Supplier");
+        getContentPane().add(supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 232, -1, -1));
 
         tanggal.setText("Tanggal Diterima");
+        getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 270, -1, -1));
+        getContentPane().add(fieldKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 78, 150, -1));
+        getContentPane().add(fieldNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 116, 150, -1));
 
         fieldJenis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldJenisActionPerformed(evt);
             }
         });
+        getContentPane().add(fieldJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 154, 150, -1));
+        getContentPane().add(fieldJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 192, 150, -1));
 
         fieldSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldSupplierActionPerformed(evt);
             }
         });
+        getContentPane().add(fieldSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 229, 150, -1));
 
         fieldTanggal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldTanggalActionPerformed(evt);
             }
         });
+        getContentPane().add(fieldTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 267, 150, -1));
 
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +132,7 @@ public class panelBarang extends javax.swing.JFrame {
                 submitButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 305, -1, -1));
 
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +140,7 @@ public class panelBarang extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 305, -1, -1));
 
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +148,7 @@ public class panelBarang extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 305, -1, -1));
 
         refreshButton.setText("Refresh");
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +156,7 @@ public class panelBarang extends javax.swing.JFrame {
                 refreshButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 305, -1, -1));
 
         tableBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -158,86 +176,7 @@ public class panelBarang extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableBarang);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(submitButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(refreshButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(title)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(tanggal)
-                            .addGap(18, 18, 18)
-                            .addComponent(fieldTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(supplier)
-                            .addGap(60, 60, 60)
-                            .addComponent(fieldSupplier))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nama)
-                                .addComponent(jenis)
-                                .addComponent(kode)
-                                .addComponent(jumlah))
-                            .addGap(64, 64, 64)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(fieldKode)
-                                .addComponent(fieldNama)
-                                .addComponent(fieldJenis)
-                                .addComponent(fieldJumlah, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))))
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kode)
-                    .addComponent(fieldKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nama)
-                    .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jenis)
-                    .addComponent(fieldJenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jumlah)
-                    .addComponent(fieldJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(supplier)
-                    .addComponent(fieldSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tanggal)
-                    .addComponent(fieldTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton)
-                    .addComponent(editButton)
-                    .addComponent(refreshButton)
-                    .addComponent(deleteButton))
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 365, -1, 150));
 
         pack();
         setLocationRelativeTo(null);
