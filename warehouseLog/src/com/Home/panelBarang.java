@@ -1,10 +1,12 @@
 package com.Home;
 
+import java.awt.Color;
 import java.awt.HeadlessException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import java.sql.Connection;
+import javax.swing.JPanel;
 
 public class panelBarang extends javax.swing.JFrame {
 
@@ -21,7 +23,6 @@ public class panelBarang extends javax.swing.JFrame {
     private void print_data(){       
         DefaultTableModel model = new DefaultTableModel();
         
-        model.addColumn("No. ");
         model.addColumn("Kode");
         model.addColumn("Nama");
         model.addColumn("Jenis");
@@ -30,20 +31,27 @@ public class panelBarang extends javax.swing.JFrame {
         model.addColumn("Tanggal Terima");
         
         try{
-            int no = 1;
             String sql = "SELECT * FROM barang";
             java.sql.Connection conn = (Connection)config.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()){
-                model.addRow(new Object[]{no++,res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
+                model.addRow(new Object[]{res.getString(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5),res.getString(6)});
             }
             tableBarang.setModel(model);
             
         }catch (SQLException e){
             System.out.println("Error : " + e.getMessage());
         }
+    }
+    
+    private void setColor(JPanel panel){
+        panel.setBackground(new Color(207,117,0));
+    }
+    
+    private void resetColor(JPanel panel){
+        panel.setBackground(new Color(240,165,0));
     }
     
     public panelBarang() {
@@ -56,6 +64,15 @@ public class panelBarang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mainContainer = new javax.swing.JPanel();
+        menuContainer = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        panelTambahData = new javax.swing.JPanel();
+        tambahData = new javax.swing.JLabel();
+        panelGudang = new javax.swing.JPanel();
+        gudang = new javax.swing.JLabel();
+        cardPanel = new javax.swing.JPanel();
+        addDataContainer = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         kode = new javax.swing.JLabel();
         nama = new javax.swing.JLabel();
@@ -73,58 +90,176 @@ public class panelBarang extends javax.swing.JFrame {
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
+        separator1 = new javax.swing.JSeparator();
+        separator2 = new javax.swing.JSeparator();
+        separator3 = new javax.swing.JSeparator();
+        separator4 = new javax.swing.JSeparator();
+        separator5 = new javax.swing.JSeparator();
+        separator6 = new javax.swing.JSeparator();
+        databaseContainer = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableBarang = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Warehouse Log");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        title.setFont(new java.awt.Font("HelveticaNeueLT Std", 1, 24)); // NOI18N
+        menuContainer.setBackground(new java.awt.Color(240, 165, 0));
+        menuContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logo.setFont(new java.awt.Font("Thin Lines and Curves", 0, 14)); // NOI18N
+        logo.setText("WAREHOUSE");
+        menuContainer.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 58, -1, -1));
+
+        panelTambahData.setBackground(new java.awt.Color(207, 117, 0));
+        panelTambahData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelTambahDataMousePressed(evt);
+            }
+        });
+
+        tambahData.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        tambahData.setForeground(new java.awt.Color(240, 240, 240));
+        tambahData.setText("Tambah Data");
+
+        javax.swing.GroupLayout panelTambahDataLayout = new javax.swing.GroupLayout(panelTambahData);
+        panelTambahData.setLayout(panelTambahDataLayout);
+        panelTambahDataLayout.setHorizontalGroup(
+            panelTambahDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTambahDataLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(tambahData)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        panelTambahDataLayout.setVerticalGroup(
+            panelTambahDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTambahDataLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(tambahData)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        menuContainer.add(panelTambahData, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 176, 40));
+
+        panelGudang.setBackground(new java.awt.Color(240, 165, 0));
+        panelGudang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelGudangMouseClicked(evt);
+            }
+        });
+
+        gudang.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        gudang.setForeground(new java.awt.Color(240, 240, 240));
+        gudang.setText("Gudang");
+
+        javax.swing.GroupLayout panelGudangLayout = new javax.swing.GroupLayout(panelGudang);
+        panelGudang.setLayout(panelGudangLayout);
+        panelGudangLayout.setHorizontalGroup(
+            panelGudangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGudangLayout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(gudang)
+                .addGap(65, 65, 65))
+        );
+        panelGudangLayout.setVerticalGroup(
+            panelGudangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGudangLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(gudang)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        menuContainer.add(panelGudang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 176, 40));
+
+        cardPanel.setBackground(new java.awt.Color(219, 219, 219));
+        cardPanel.setLayout(new java.awt.CardLayout());
+
+        title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         title.setText("Data Barang");
-        getContentPane().add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 39, -1, -1));
 
+        kode.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         kode.setText("Kode");
-        getContentPane().add(kode, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 81, -1, -1));
 
+        nama.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         nama.setText("Nama");
-        getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 119, -1, -1));
 
+        jenis.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jenis.setText("Jenis");
-        getContentPane().add(jenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 157, -1, -1));
 
+        jumlah.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jumlah.setText("Jumlah");
-        getContentPane().add(jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 195, -1, -1));
 
+        supplier.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         supplier.setText("Supplier");
-        getContentPane().add(supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 232, -1, -1));
 
+        tanggal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         tanggal.setText("Tanggal Diterima");
-        getContentPane().add(tanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 270, -1, -1));
-        getContentPane().add(fieldKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 78, 150, -1));
-        getContentPane().add(fieldNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 116, 150, -1));
 
+        fieldKode.setBackground(new java.awt.Color(240, 240, 240));
+        fieldKode.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        fieldKode.setForeground(new java.awt.Color(102, 102, 102));
+        fieldKode.setText("e.x 011");
+        fieldKode.setBorder(null);
+        fieldKode.setOpaque(false);
+        fieldKode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldKodeActionPerformed(evt);
+            }
+        });
+
+        fieldNama.setBackground(new java.awt.Color(240, 240, 240));
+        fieldNama.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        fieldNama.setForeground(new java.awt.Color(102, 102, 102));
+        fieldNama.setText("e.x");
+        fieldNama.setBorder(null);
+        fieldNama.setOpaque(false);
+        fieldNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldNamaActionPerformed(evt);
+            }
+        });
+
+        fieldJenis.setBackground(new java.awt.Color(240, 240, 240));
+        fieldJenis.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        fieldJenis.setForeground(new java.awt.Color(102, 102, 102));
+        fieldJenis.setText("e.x");
+        fieldJenis.setBorder(null);
+        fieldJenis.setOpaque(false);
         fieldJenis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldJenisActionPerformed(evt);
             }
         });
-        getContentPane().add(fieldJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 154, 150, -1));
-        getContentPane().add(fieldJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 192, 150, -1));
 
+        fieldJumlah.setBackground(new java.awt.Color(240, 240, 240));
+        fieldJumlah.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        fieldJumlah.setForeground(new java.awt.Color(102, 102, 102));
+        fieldJumlah.setText("e.x");
+        fieldJumlah.setBorder(null);
+        fieldJumlah.setOpaque(false);
+
+        fieldSupplier.setBackground(new java.awt.Color(240, 240, 240));
+        fieldSupplier.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        fieldSupplier.setForeground(new java.awt.Color(102, 102, 102));
+        fieldSupplier.setText("e.x");
+        fieldSupplier.setBorder(null);
+        fieldSupplier.setOpaque(false);
         fieldSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldSupplierActionPerformed(evt);
             }
         });
-        getContentPane().add(fieldSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 229, 150, -1));
 
+        fieldTanggal.setBackground(new java.awt.Color(240, 240, 240));
+        fieldTanggal.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        fieldTanggal.setForeground(new java.awt.Color(102, 102, 102));
+        fieldTanggal.setText("e.x");
+        fieldTanggal.setBorder(null);
+        fieldTanggal.setOpaque(false);
         fieldTanggal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldTanggalActionPerformed(evt);
             }
         });
-        getContentPane().add(fieldTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 267, 150, -1));
 
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +267,6 @@ public class panelBarang extends javax.swing.JFrame {
                 submitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 305, -1, -1));
 
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +274,6 @@ public class panelBarang extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 305, -1, -1));
 
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +281,6 @@ public class panelBarang extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 305, -1, -1));
 
         refreshButton.setText("Refresh");
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
@@ -156,8 +288,129 @@ public class panelBarang extends javax.swing.JFrame {
                 refreshButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 305, -1, -1));
 
+        separator1.setBackground(new java.awt.Color(51, 51, 51));
+        separator1.setForeground(new java.awt.Color(51, 51, 51));
+
+        separator2.setBackground(new java.awt.Color(51, 51, 51));
+        separator2.setForeground(new java.awt.Color(51, 51, 51));
+
+        separator3.setBackground(new java.awt.Color(51, 51, 51));
+        separator3.setForeground(new java.awt.Color(51, 51, 51));
+
+        separator4.setBackground(new java.awt.Color(51, 51, 51));
+        separator4.setForeground(new java.awt.Color(51, 51, 51));
+
+        separator5.setBackground(new java.awt.Color(51, 51, 51));
+        separator5.setForeground(new java.awt.Color(51, 51, 51));
+
+        separator6.setBackground(new java.awt.Color(51, 51, 51));
+        separator6.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout addDataContainerLayout = new javax.swing.GroupLayout(addDataContainer);
+        addDataContainer.setLayout(addDataContainerLayout);
+        addDataContainerLayout.setHorizontalGroup(
+            addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addDataContainerLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addDataContainerLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(submitButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(refreshButton)
+                        .addGap(0, 72, Short.MAX_VALUE))
+                    .addGroup(addDataContainerLayout.createSequentialGroup()
+                        .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(separator1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nama)
+                                    .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(fieldNama, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(kode, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(title, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jenis, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(fieldKode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                        .addComponent(separator3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(separator5, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(fieldJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(supplier)
+                            .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(fieldSupplier, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(fieldJumlah, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tanggal, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(separator2)
+                                .addComponent(jumlah, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(separator4)
+                                .addComponent(separator6))
+                            .addComponent(fieldTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        addDataContainerLayout.setVerticalGroup(
+            addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addDataContainerLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(addDataContainerLayout.createSequentialGroup()
+                        .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(addDataContainerLayout.createSequentialGroup()
+                                .addComponent(jumlah)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fieldJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(addDataContainerLayout.createSequentialGroup()
+                                .addComponent(title)
+                                .addGap(18, 18, 18)
+                                .addComponent(kode)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fieldKode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(1, 1, 1)
+                        .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(separator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(supplier)
+                            .addComponent(nama))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fieldSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(separator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(separator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(addDataContainerLayout.createSequentialGroup()
+                        .addComponent(tanggal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fieldTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addDataContainerLayout.createSequentialGroup()
+                        .addComponent(jenis)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fieldJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(separator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(separator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitButton)
+                    .addComponent(editButton)
+                    .addComponent(deleteButton)
+                    .addComponent(refreshButton))
+                .addGap(50, 50, 50))
+        );
+
+        cardPanel.add(addDataContainer, "card20");
+
+        tableBarang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tableBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -169,6 +422,8 @@ public class panelBarang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableBarang.setFocusable(false);
+        tableBarang.setIntercellSpacing(new java.awt.Dimension(0, 0));
         tableBarang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableBarangMouseClicked(evt);
@@ -176,23 +431,104 @@ public class panelBarang extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableBarang);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 365, -1, 150));
+        javax.swing.GroupLayout databaseContainerLayout = new javax.swing.GroupLayout(databaseContainer);
+        databaseContainer.setLayout(databaseContainerLayout);
+        databaseContainerLayout.setHorizontalGroup(
+            databaseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(databaseContainerLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        databaseContainerLayout.setVerticalGroup(
+            databaseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(databaseContainerLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        cardPanel.add(databaseContainer, "card3");
+
+        javax.swing.GroupLayout mainContainerLayout = new javax.swing.GroupLayout(mainContainer);
+        mainContainer.setLayout(mainContainerLayout);
+        mainContainerLayout.setHorizontalGroup(
+            mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(mainContainerLayout.createSequentialGroup()
+                .addComponent(menuContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        mainContainerLayout.setVerticalGroup(
+            mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addComponent(menuContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTanggalActionPerformed
-    
-    }//GEN-LAST:event_fieldTanggalActionPerformed
+    private void tableBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableBarangMouseClicked
+        int baris = tableBarang.rowAtPoint(evt.getPoint());
+        
+        String Kode = tableBarang.getValueAt(baris, 0).toString();
+        fieldKode.setText(Kode);
+        String Nama = tableBarang.getValueAt(baris, 1).toString();
+        fieldNama.setText(Nama);
+        String Jenis = tableBarang.getValueAt(baris, 2).toString();
+        fieldJenis.setText(Jenis);
+        String Jumlah = tableBarang.getValueAt(baris, 3).toString();
+        fieldJumlah.setText(Jumlah);
+        String Supplier = tableBarang.getValueAt(baris, 4).toString();
+        fieldSupplier.setText(Supplier);
+        String Tanggal = tableBarang.getValueAt(baris, 5).toString();
+        fieldTanggal.setText(Tanggal);
+    }//GEN-LAST:event_tableBarangMouseClicked
 
-    private void fieldJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldJenisActionPerformed
-    
-    }//GEN-LAST:event_fieldJenisActionPerformed
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        empty_form();
+    }//GEN-LAST:event_refreshButtonActionPerformed
 
-    private void fieldSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSupplierActionPerformed
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        try{
+            String sql = "DELETE FROM barang WHERE kode_barang='"+fieldKode.getText()+"'";
+            java.sql.Connection conn = (Connection)config.configDB();
+            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Delete Successful!");
 
-    }//GEN-LAST:event_fieldSupplierActionPerformed
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        print_data();
+        empty_form();
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        try{
+            String sql = "UPDATE barang SET kode_barang='"+fieldKode.getText()+"',nama_barang='"+fieldNama.getText()+"',jenis_barang='"+fieldJenis.getText()+"',jumlah_barang='"+fieldJumlah.getText()+"',supplier_barang='"+fieldSupplier.getText()+"',tanggal_terima='"+fieldTanggal.getText()+"' WHERE kode_barang='"+fieldKode.getText()+"'";
+            java.sql.Connection conn = (Connection)config.configDB();
+            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Edit Successful!");
+
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        print_data();
+        empty_form();
+    }//GEN-LAST:event_editButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         try{
@@ -203,62 +539,51 @@ public class panelBarang extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Save Successful!");
             print_data();
             empty_form();
-            
+
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
-    private void tableBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableBarangMouseClicked
-        int baris = tableBarang.rowAtPoint(evt.getPoint());
+    private void fieldTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTanggalActionPerformed
+
+    }//GEN-LAST:event_fieldTanggalActionPerformed
+
+    private void fieldSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSupplierActionPerformed
+
+    }//GEN-LAST:event_fieldSupplierActionPerformed
+
+    private void fieldJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldJenisActionPerformed
+
+    }//GEN-LAST:event_fieldJenisActionPerformed
+
+    private void fieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldNamaActionPerformed
+    
+    }//GEN-LAST:event_fieldNamaActionPerformed
+
+    private void fieldKodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldKodeActionPerformed
+    
+    }//GEN-LAST:event_fieldKodeActionPerformed
+
+    private void panelGudangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGudangMouseClicked
+        setColor(panelGudang);
+        resetColor(panelTambahData);
         
-        String Kode = tableBarang.getValueAt(baris, 1).toString();
-        fieldKode.setText(Kode);
-        String Nama = tableBarang.getValueAt(baris, 2).toString();
-        fieldKode.setText(Nama);
-        String Jenis = tableBarang.getValueAt(baris, 3).toString();
-        fieldKode.setText(Jenis);
-        String Jumlah = tableBarang.getValueAt(baris, 4).toString();
-        fieldKode.setText(Jumlah);
-        String Supplier = tableBarang.getValueAt(baris, 5).toString();
-        fieldKode.setText(Supplier);
-        String Tanggal = tableBarang.getValueAt(baris, 6).toString();
-        fieldKode.setText(Tanggal);
-    }//GEN-LAST:event_tableBarangMouseClicked
-
-    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
-        empty_form();
-    }//GEN-LAST:event_refreshButtonActionPerformed
-
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        try{
-            String sql = "UPDATE barang SET kode_barang='"+fieldKode.getText()+"',nama_barang='"+fieldNama.getText()+"',jenis_barang='"+fieldJenis.getText()+"',jumlah_barang='"+fieldJumlah.getText()+"',supplier_barang='"+fieldSupplier.getText()+"',tanggal_terima='"+fieldTanggal.getText()+"' WHERE kode_barang = '"+fieldKode.getText()+"'";
-            java.sql.Connection conn = (Connection)config.configDB();
-            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.execute();
-            JOptionPane.showMessageDialog(null, "Edit Successful!");
-            
-        }catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
+        if(evt.getSource() == panelGudang){
+            databaseContainer.setVisible(true);
+            addDataContainer.setVisible(false);
         }
-        print_data();
-        empty_form();
-    }//GEN-LAST:event_editButtonActionPerformed
+    }//GEN-LAST:event_panelGudangMouseClicked
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        try{
-            String sql = "DELETE FROM barang WHERE kode_barang='"+fieldKode.getText()+"'";
-            java.sql.Connection conn = (Connection)config.configDB();
-            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.execute();
-            JOptionPane.showMessageDialog(null, "Delete Successful!");
+    private void panelTambahDataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTambahDataMousePressed
+        setColor(panelTambahData);
+        resetColor(panelGudang);
         
-        }catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
+        if(evt.getSource() == panelTambahData){
+            addDataContainer.setVisible(true);
+            databaseContainer.setVisible(false);
         }
-        print_data();
-        empty_form();
-    }//GEN-LAST:event_deleteButtonActionPerformed
+    }//GEN-LAST:event_panelTambahDataMousePressed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -291,6 +616,9 @@ public class panelBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel addDataContainer;
+    private javax.swing.JPanel cardPanel;
+    private javax.swing.JPanel databaseContainer;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField fieldJenis;
@@ -299,15 +627,28 @@ public class panelBarang extends javax.swing.JFrame {
     private javax.swing.JTextField fieldNama;
     private javax.swing.JTextField fieldSupplier;
     private javax.swing.JTextField fieldTanggal;
+    private javax.swing.JLabel gudang;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jenis;
     private javax.swing.JLabel jumlah;
     private javax.swing.JLabel kode;
+    private javax.swing.JLabel logo;
+    private javax.swing.JPanel mainContainer;
+    private javax.swing.JPanel menuContainer;
     private javax.swing.JLabel nama;
+    private javax.swing.JPanel panelGudang;
+    private javax.swing.JPanel panelTambahData;
     private javax.swing.JButton refreshButton;
+    private javax.swing.JSeparator separator1;
+    private javax.swing.JSeparator separator2;
+    private javax.swing.JSeparator separator3;
+    private javax.swing.JSeparator separator4;
+    private javax.swing.JSeparator separator5;
+    private javax.swing.JSeparator separator6;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel supplier;
     private javax.swing.JTable tableBarang;
+    private javax.swing.JLabel tambahData;
     private javax.swing.JLabel tanggal;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
