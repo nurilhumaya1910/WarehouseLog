@@ -111,6 +111,7 @@ public class panelBarang extends javax.swing.JFrame {
         menuContainer.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 58, -1, -1));
 
         panelTambahData.setBackground(new java.awt.Color(207, 117, 0));
+        panelTambahData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelTambahData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 panelTambahDataMousePressed(evt);
@@ -135,12 +136,13 @@ public class panelBarang extends javax.swing.JFrame {
             .addGroup(panelTambahDataLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(tambahData)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menuContainer.add(panelTambahData, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 176, 40));
 
         panelGudang.setBackground(new java.awt.Color(240, 165, 0));
+        panelGudang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelGudang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelGudangMouseClicked(evt);
@@ -177,26 +179,32 @@ public class panelBarang extends javax.swing.JFrame {
         title.setText("Data Barang");
 
         kode.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        kode.setText("Kode");
+        kode.setForeground(new java.awt.Color(102, 102, 102));
+        kode.setText("KODE");
 
         nama.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        nama.setText("Nama");
+        nama.setForeground(new java.awt.Color(102, 102, 102));
+        nama.setText("NAMA");
 
         jenis.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        jenis.setText("Jenis");
+        jenis.setForeground(new java.awt.Color(102, 102, 102));
+        jenis.setText("JENIS");
 
         jumlah.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        jumlah.setText("Jumlah");
+        jumlah.setForeground(new java.awt.Color(102, 102, 102));
+        jumlah.setText("JUMLAH");
 
         supplier.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        supplier.setText("Supplier");
+        supplier.setForeground(new java.awt.Color(102, 102, 102));
+        supplier.setText("SUPPLIER");
 
         tanggal.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
-        tanggal.setText("Tanggal Diterima");
+        tanggal.setForeground(new java.awt.Color(102, 102, 102));
+        tanggal.setText("TANGGAL TERIMA");
 
         fieldKode.setBackground(new java.awt.Color(240, 240, 240));
-        fieldKode.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        fieldKode.setForeground(new java.awt.Color(102, 102, 102));
+        fieldKode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldKode.setForeground(new java.awt.Color(51, 51, 51));
         fieldKode.setText("e.x 011");
         fieldKode.setBorder(null);
         fieldKode.setOpaque(false);
@@ -207,8 +215,8 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         fieldNama.setBackground(new java.awt.Color(240, 240, 240));
-        fieldNama.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        fieldNama.setForeground(new java.awt.Color(102, 102, 102));
+        fieldNama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldNama.setForeground(new java.awt.Color(51, 51, 51));
         fieldNama.setText("e.x");
         fieldNama.setBorder(null);
         fieldNama.setOpaque(false);
@@ -219,8 +227,8 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         fieldJenis.setBackground(new java.awt.Color(240, 240, 240));
-        fieldJenis.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        fieldJenis.setForeground(new java.awt.Color(102, 102, 102));
+        fieldJenis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldJenis.setForeground(new java.awt.Color(51, 51, 51));
         fieldJenis.setText("e.x");
         fieldJenis.setBorder(null);
         fieldJenis.setOpaque(false);
@@ -231,15 +239,15 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         fieldJumlah.setBackground(new java.awt.Color(240, 240, 240));
-        fieldJumlah.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        fieldJumlah.setForeground(new java.awt.Color(102, 102, 102));
+        fieldJumlah.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldJumlah.setForeground(new java.awt.Color(51, 51, 51));
         fieldJumlah.setText("e.x");
         fieldJumlah.setBorder(null);
         fieldJumlah.setOpaque(false);
 
         fieldSupplier.setBackground(new java.awt.Color(240, 240, 240));
-        fieldSupplier.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        fieldSupplier.setForeground(new java.awt.Color(102, 102, 102));
+        fieldSupplier.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldSupplier.setForeground(new java.awt.Color(51, 51, 51));
         fieldSupplier.setText("e.x");
         fieldSupplier.setBorder(null);
         fieldSupplier.setOpaque(false);
@@ -250,8 +258,8 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         fieldTanggal.setBackground(new java.awt.Color(240, 240, 240));
-        fieldTanggal.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        fieldTanggal.setForeground(new java.awt.Color(102, 102, 102));
+        fieldTanggal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fieldTanggal.setForeground(new java.awt.Color(51, 51, 51));
         fieldTanggal.setText("e.x");
         fieldTanggal.setBorder(null);
         fieldTanggal.setOpaque(false);
@@ -262,6 +270,7 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         submitButton.setText("Submit");
+        submitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -269,6 +278,7 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         editButton.setText("Edit");
+        editButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -276,6 +286,7 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         deleteButton.setText("Delete");
+        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -283,6 +294,7 @@ public class panelBarang extends javax.swing.JFrame {
         });
 
         refreshButton.setText("Refresh");
+        refreshButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshButtonActionPerformed(evt);
@@ -323,7 +335,7 @@ public class panelBarang extends javax.swing.JFrame {
                         .addComponent(deleteButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshButton)
-                        .addGap(0, 72, Short.MAX_VALUE))
+                        .addGap(0, 73, Short.MAX_VALUE))
                     .addGroup(addDataContainerLayout.createSequentialGroup()
                         .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -351,7 +363,7 @@ public class panelBarang extends javax.swing.JFrame {
                                 .addComponent(separator4)
                                 .addComponent(separator6))
                             .addComponent(fieldTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         addDataContainerLayout.setVerticalGroup(
             addDataContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -422,8 +434,10 @@ public class panelBarang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableBarang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tableBarang.setFocusable(false);
         tableBarang.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        tableBarang.setRowHeight(20);
         tableBarang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableBarangMouseClicked(evt);
@@ -438,13 +452,14 @@ public class panelBarang extends javax.swing.JFrame {
             .addGroup(databaseContainerLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         databaseContainerLayout.setVerticalGroup(
             databaseContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(databaseContainerLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         cardPanel.add(databaseContainer, "card3");
@@ -460,7 +475,7 @@ public class panelBarang extends javax.swing.JFrame {
         );
         mainContainerLayout.setVerticalGroup(
             mainContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(menuContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -578,7 +593,7 @@ public class panelBarang extends javax.swing.JFrame {
     private void panelTambahDataMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTambahDataMousePressed
         setColor(panelTambahData);
         resetColor(panelGudang);
-        
+
         if(evt.getSource() == panelTambahData){
             addDataContainer.setVisible(true);
             databaseContainer.setVisible(false);
